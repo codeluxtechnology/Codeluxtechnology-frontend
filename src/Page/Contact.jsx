@@ -47,18 +47,17 @@ const Contact = ({ settings }) => {
       <div className="animated-grid absolute inset-0 opacity-20" aria-hidden="true"></div>
       <div className="contact-bg-glow contact-bg-glow-one" aria-hidden="true"></div>
       <div className="contact-bg-glow contact-bg-glow-two" aria-hidden="true"></div>
-      <div className="contact-layout-shell mx-auto grid w-full max-w-7xl grid-cols-1 gap-10 px-4 py-20 sm:px-6 lg:grid-cols-[0.88fr_1.12fr] lg:px-8">
+      <div className="contact-layout-shell mx-auto grid w-full max-w-7xl grid-cols-1 gap-8 px-4 py-20 sm:px-6 lg:grid-cols-[0.88fr_1.12fr] lg:px-8">
         <div className="reveal-on-scroll">
           <p className="contact-kicker mb-4 text-xs font-black uppercase tracking-normal text-blue-400">Contact</p>
-          <h2 className="text-4xl font-black leading-tight tracking-normal sm:text-5xl">
-            <span className="heading-word heading-word-light">Let's discuss</span>{' '}
-            <span className="heading-word heading-word-light" style={{ '--word-delay': '180ms' }}>your project</span>
+          <h2 className="contact-title text-4xl font-black leading-tight tracking-normal sm:text-5xl">
+            <span className="heading-word heading-word-light">Let's discuss your</span>{' '}
+            <span className="heading-word heading-word-light" style={{ '--word-delay': '180ms' }}>project</span>
           </h2>
-          <p className="mt-5 max-w-xl text-lg leading-8 text-slate-300">
-            Contact CODELUX Technology for a free quote, website plan, or
-            custom software idea.
+          <p className="contact-lead mt-4 max-w-xl text-lg leading-8 text-slate-300">
+            Contact CODELUX Technology for a free quote, website plan, or custom software idea.
           </p>
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+          <div className="mt-6 flex flex-col gap-3 sm:flex-row">
             <a className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-blue-600 px-6 text-sm font-black text-white no-underline transition hover:-translate-y-0.5 hover:bg-blue-500" href={`tel:${site.contactPhone || ''}`}>
               <Phone className="h-4 w-4" aria-hidden="true" />
               Call Now
@@ -69,7 +68,7 @@ const Contact = ({ settings }) => {
             </a>
           </div>
 
-          <form className="contact-form-card reveal-on-scroll mt-8 rounded-lg border border-white/10 bg-white p-4 text-slate-950 shadow-2xl shadow-slate-950/20" onSubmit={submitContact}>
+          <form className="contact-form-card reveal-on-scroll mt-6 rounded-lg border border-white/10 bg-white p-4 text-slate-950 shadow-2xl shadow-slate-950/20" onSubmit={submitContact}>
             <div className="grid gap-3 sm:grid-cols-2">
               <input className="min-h-12 rounded-lg border border-slate-200 px-4 text-sm font-semibold outline-none focus:border-blue-500" name="fullName" onChange={updateField} placeholder="Full name" required value={form.fullName} />
               <input className="min-h-12 rounded-lg border border-slate-200 px-4 text-sm font-semibold outline-none focus:border-blue-500" name="email" onChange={updateField} placeholder="Email" required type="email" value={form.email} />
@@ -87,7 +86,7 @@ const Contact = ({ settings }) => {
           </form>
         </div>
 
-        <div className="space-y-4">
+        <div className="contact-side space-y-4">
           <address className="contact-info-card reveal-on-scroll rounded-lg border border-white/10 bg-white p-3 not-italic shadow-2xl shadow-slate-950/20">
             {contactRows.map(([label, value, Icon]) => (
               <p className="grid gap-1 border-b border-slate-100 px-4 py-4 last:border-b-0 sm:grid-cols-[160px_1fr] sm:gap-4" key={label}>
@@ -120,7 +119,7 @@ const Contact = ({ settings }) => {
               </a>
             </div>
             <iframe
-              className="contact-map-frame h-52 w-full rounded-lg border-0 grayscale-[15%] sm:h-60"
+              className="contact-map-frame h-44 w-full rounded-lg border-0 grayscale-[15%] sm:h-52"
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
               src={mapEmbedUrl}

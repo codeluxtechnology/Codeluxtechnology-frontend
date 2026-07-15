@@ -285,6 +285,13 @@
     padding: 16px;
   }
 
+  .about-highlight-strip {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+    margin-top: 14px;
+  }
+
   .about-metric-card strong {
     color: #fff;
     font-size: 15px;
@@ -340,11 +347,11 @@
   .service-pro-card {
     position: relative;
     overflow: hidden;
-    min-height: 238px;
+    min-height: 220px;
     border: 1px solid rgba(203, 213, 225, 0.9);
     border-radius: 8px;
     background: rgba(255, 255, 255, 0.96);
-    padding: 26px;
+    padding: 22px;
     box-shadow: 0 10px 28px rgba(15, 23, 42, 0.06);
     transition:
       transform 220ms ease,
@@ -1218,6 +1225,7 @@
 
 @media (max-width: 720px) {
   .about-feature-grid,
+  .about-highlight-strip,
   .process-flow {
     grid-template-columns: 1fr;
   }
@@ -1326,5 +1334,700 @@
   .service-pro-card:hover .service-icon-badge,
   .process-node-icon {
     animation: none;
+  }
+}
+
+/* Premium public-site refresh. Scoped to avoid changing the admin UI contracts. */
+.public-site .animated-grid {
+  background-image:
+    linear-gradient(rgba(10, 10, 10, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(10, 10, 10, 0.06) 1px, transparent 1px);
+  background-size: 92px 92px;
+}
+
+.public-site .animated-sweep {
+  background: linear-gradient(90deg, transparent, rgba(10, 10, 10, 0.08), transparent);
+}
+
+.public-site .heading-word {
+  display: inline;
+  background: none;
+  color: inherit;
+  animation: none;
+}
+
+.public-site .heading-word-light {
+  background: linear-gradient(90deg, #ffffff, #cfcfc8);
+  background-clip: text;
+  color: transparent;
+}
+
+.public-site section {
+  scroll-margin-top: 92px;
+}
+
+.public-site section:not(#home) {
+  isolation: isolate;
+}
+
+.public-site section:not(#home)::before {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  content: "";
+}
+
+.public-site #about,
+.public-site .contact-section {
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.055) 1px, transparent 1px),
+    #0a0a0a;
+  background-size: 96px 96px, auto;
+}
+
+.public-site #about::before,
+.public-site .contact-section::before {
+  background:
+    radial-gradient(ellipse at 12% 22%, rgba(255, 255, 255, 0.1), transparent 34%),
+    radial-gradient(ellipse at 82% 70%, rgba(21, 93, 252, 0.12), transparent 36%),
+    linear-gradient(180deg, transparent 0%, rgba(255, 255, 255, 0.035) 50%, transparent 100%);
+  opacity: 0.9;
+}
+
+.public-site #about > .absolute,
+.public-site .contact-bg-glow {
+  display: none;
+}
+
+.public-site #about .mx-auto.grid,
+.public-site #services > .mx-auto,
+.public-site #portfolio > .mx-auto,
+.public-site #jobs > .relative.mx-auto,
+.public-site .contact-layout-shell {
+  max-width: 1320px;
+  padding-top: clamp(84px, 9vw, 132px);
+  padding-bottom: clamp(84px, 9vw, 132px);
+}
+
+.public-site #about p[class*="uppercase"],
+.public-site #services p[class*="uppercase"],
+.public-site #portfolio p[class*="uppercase"],
+.public-site #jobs p[class*="uppercase"],
+.public-site .contact-kicker {
+  display: inline-flex;
+  width: fit-content;
+  align-items: center;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  background: transparent;
+  color: inherit;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  padding: 9px 12px;
+  opacity: 0.74;
+}
+
+.public-site #about h2,
+.public-site #services h2,
+.public-site #portfolio h2,
+.public-site #jobs h2,
+.public-site .contact-section h2 {
+  color: inherit;
+  font-size: clamp(44px, 7vw, 92px);
+  font-weight: 950;
+  letter-spacing: 0;
+  line-height: 0.95;
+}
+
+.public-site #about p,
+.public-site .contact-section p {
+  color: #c8c8c0;
+}
+
+.public-site .about-feature-shell {
+  border-color: rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.055);
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.34);
+  backdrop-filter: blur(18px);
+}
+
+.public-site .about-feature-card,
+.public-site .about-metric-card,
+.public-site .about-delivery-card,
+.public-site .team-card {
+  position: relative;
+  border-color: rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.055);
+  box-shadow: none;
+}
+
+.public-site .about-feature-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.public-site .about-feature-card {
+  min-height: 118px;
+}
+
+.public-site .about-highlight-strip {
+  align-items: stretch;
+}
+
+.public-site .about-highlight-strip .about-metric-card {
+  min-height: 124px;
+}
+
+.public-site .about-feature-card::after,
+.public-site .about-metric-card::after,
+.public-site .about-delivery-card::after,
+.public-site .team-card::after,
+.public-site .service-pro-card::after,
+.public-site #jobs article::after,
+.public-site #portfolio article::after {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.16), transparent 42%);
+  content: "";
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 260ms ease;
+}
+
+.public-site .about-feature-card:hover::after,
+.public-site .about-metric-card:hover::after,
+.public-site .about-delivery-card:hover::after,
+.public-site .team-card:hover::after,
+.public-site .service-pro-card:hover::after,
+.public-site #jobs article:hover::after,
+.public-site #portfolio article:hover::after {
+  opacity: 1;
+}
+
+.public-site .about-feature-card:hover,
+.public-site .about-metric-card:hover,
+.public-site .about-delivery-card:hover,
+.public-site .team-card:hover {
+  border-color: rgba(255, 255, 255, 0.28);
+  background: rgba(255, 255, 255, 0.085);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.28);
+}
+
+.public-site .about-feature-icon {
+  background: #fff;
+  color: #0a0a0a;
+  box-shadow: none;
+}
+
+.public-site .about-metric-card strong,
+.public-site .about-delivery-card strong,
+.public-site .team-card-name {
+  color: #fff;
+}
+
+.public-site .about-metric-card span,
+.public-site .about-delivery-card span,
+.public-site .team-card-meta {
+  color: #b9b9b2;
+}
+
+.public-site .about-delivery-pulse {
+  display: none;
+}
+
+.public-site #team {
+  padding-bottom: clamp(84px, 9vw, 132px);
+}
+
+.public-site .team-group {
+  max-width: min(100%, 1120px);
+  margin-top: clamp(48px, 6vw, 78px);
+}
+
+.public-site .team-group > .mx-auto.mb-8 {
+  margin-bottom: 28px;
+}
+
+.public-site .team-carousel {
+  width: min(100%, 980px);
+  overflow: visible;
+}
+
+.public-site .team-carousel > .overflow-hidden {
+  border-radius: 10px;
+  padding: 18px 8px 22px;
+}
+
+.public-site .team-page-grid {
+  gap: 24px;
+  align-items: stretch;
+}
+
+.public-site .team-page-count-1 {
+  grid-template-columns: minmax(0, 300px);
+}
+
+.public-site .team-page-count-2 {
+  grid-template-columns: repeat(2, minmax(0, 300px));
+}
+
+.public-site .team-page-count-3 {
+  grid-template-columns: repeat(3, minmax(0, 300px));
+}
+
+.public-site .team-card {
+  display: flex;
+  min-height: 360px;
+  max-width: 300px;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 24px;
+}
+
+.public-site .team-card .pt-3 {
+  display: flex;
+  min-height: 0;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+}
+
+.public-site .team-photo-shell {
+  width: 132px;
+  height: 132px;
+  flex: 0 0 132px;
+}
+
+.public-site .team-photo {
+  background: rgba(255, 255, 255, 0.96);
+}
+
+.public-site .team-card-name {
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+
+.public-site .team-card p.team-card-meta {
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+
+.public-site .team-card a.team-card-meta {
+  display: inline-grid !important;
+  width: 42px !important;
+  min-width: 42px !important;
+  max-width: 42px !important;
+  height: 42px !important;
+  min-height: 42px !important;
+  max-height: 42px !important;
+  margin-top: auto;
+  padding: 0 !important;
+  place-items: center;
+  border-radius: 999px;
+  line-height: 1;
+  writing-mode: horizontal-tb;
+}
+
+.public-site .team-card a.team-card-meta svg {
+  width: 18px;
+  height: 18px;
+}
+
+.public-site .team-carousel [aria-label*="profile slides"] {
+  margin-top: 18px;
+}
+
+.public-site .team-nav-button {
+  border-color: rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+}
+
+.public-site .team-nav-button:hover {
+  border-color: #fff;
+  background: #fff;
+  color: #0a0a0a;
+}
+
+.public-site .team-nav-prev {
+  left: -64px;
+}
+
+.public-site .team-nav-next {
+  right: -64px;
+}
+
+.public-site #services,
+.public-site #jobs {
+  background:
+    linear-gradient(90deg, rgba(10, 10, 10, 0.045) 1px, transparent 1px),
+    #f7f7f2;
+  background-size: 96px 96px, auto;
+  color: #0a0a0a;
+}
+
+.public-site #services::before,
+.public-site #jobs::before {
+  background:
+    radial-gradient(ellipse at 88% 14%, rgba(10, 10, 10, 0.055), transparent 30%),
+    linear-gradient(135deg, transparent, rgba(21, 93, 252, 0.045), transparent 62%);
+}
+
+.public-site #portfolio {
+  background: #ffffff;
+  color: #0a0a0a;
+}
+
+.public-site #portfolio::before {
+  background:
+    linear-gradient(90deg, rgba(10, 10, 10, 0.035) 1px, transparent 1px),
+    radial-gradient(ellipse at 20% 16%, rgba(10, 10, 10, 0.045), transparent 32%);
+  background-size: 96px 96px, auto;
+}
+
+.public-site #services h2,
+.public-site #portfolio h2,
+.public-site #jobs h2 {
+  max-width: 980px;
+}
+
+.public-site .service-pro-card,
+.public-site #jobs article,
+.public-site #portfolio article {
+  position: relative;
+  border-color: rgba(10, 10, 10, 0.12);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.86);
+  box-shadow: none;
+  backdrop-filter: blur(16px);
+}
+
+.public-site .service-pro-card {
+  min-height: 232px;
+  padding: clamp(20px, 2vw, 26px);
+}
+
+.public-site .service-pro-card::before {
+  background: linear-gradient(180deg, rgba(10, 10, 10, 0.035), transparent);
+}
+
+.public-site .service-pro-card:hover,
+.public-site #jobs article:hover,
+.public-site #portfolio article:hover {
+  transform: translateY(-6px);
+  border-color: rgba(10, 10, 10, 0.32);
+  box-shadow: 0 28px 70px rgba(10, 10, 10, 0.1);
+}
+
+.public-site .service-icon-badge {
+  width: 46px;
+  height: 46px;
+  border: 1px solid rgba(10, 10, 10, 0.12);
+  background: #0a0a0a;
+  color: #fff;
+  box-shadow: none;
+}
+
+.public-site .service-pro-card:hover .service-icon-badge {
+  transform: translateY(-2px) scale(1.04);
+}
+
+.public-site .service-pro-card h3 {
+  max-width: 280px;
+  color: #0a0a0a;
+  font-size: clamp(20px, 1.65vw, 26px);
+  font-weight: 950;
+  letter-spacing: 0;
+  line-height: 1.02;
+}
+
+.public-site .service-pro-card p,
+.public-site #portfolio p,
+.public-site #jobs p {
+  color: #666;
+}
+
+.public-site .process-panel {
+  border-color: rgba(10, 10, 10, 0.12);
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.055), transparent 36%),
+    #0a0a0a;
+  color: #fff;
+  box-shadow: 0 32px 90px rgba(10, 10, 10, 0.18);
+  backdrop-filter: blur(18px);
+}
+
+.public-site .process-panel h3 {
+  color: #fff;
+  font-size: clamp(34px, 5vw, 64px);
+  line-height: 0.98;
+}
+
+.public-site .process-panel p {
+  color: #c8c8c0;
+}
+
+.public-site .process-flow::before {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.public-site .process-node {
+  border-color: rgba(255, 255, 255, 0.13);
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(12px);
+}
+
+.public-site .process-node:hover {
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: none;
+}
+
+.public-site .process-node-number,
+.public-site .process-node-icon {
+  background: #fff;
+  color: #0a0a0a;
+  box-shadow: none;
+}
+
+.public-site .process-node-number {
+  border-color: #0a0a0a;
+}
+
+.public-site .process-node strong {
+  color: #fff;
+}
+
+.public-site .process-node p {
+  color: #aaa;
+}
+
+.public-site #portfolio article {
+  min-height: 340px;
+  overflow: hidden;
+}
+
+.public-site #portfolio article .relative.h-40 {
+  height: 190px;
+  background: #0a0a0a;
+}
+
+.public-site #portfolio article img {
+  filter: grayscale(18%);
+}
+
+.public-site #portfolio article:hover img {
+  filter: grayscale(0%);
+  transform: scale(1.06);
+}
+
+.public-site #portfolio article h3,
+.public-site #jobs article h3 {
+  color: #0a0a0a;
+  font-size: clamp(24px, 2.5vw, 32px);
+  font-weight: 950;
+  letter-spacing: 0;
+  line-height: 1;
+}
+
+.public-site #portfolio article span[class*="bg-white"] {
+  border: 1px solid rgba(10, 10, 10, 0.1);
+  background: rgba(255, 255, 255, 0.92);
+  color: #0a0a0a;
+}
+
+.public-site #portfolio article span[class*="bg-slate-950"] {
+  background: #0a0a0a;
+}
+
+.public-site #jobs article {
+  padding: clamp(24px, 3vw, 34px);
+}
+
+.public-site #jobs span[class*="rounded-lg"] {
+  border-color: rgba(10, 10, 10, 0.12);
+  background: #f7f7f2;
+  color: #444;
+}
+
+.public-site #jobs a,
+.public-site .contact-section a,
+.public-site .contact-section button {
+  border-radius: 8px;
+  transition:
+    transform 180ms ease,
+    background-color 180ms ease,
+    border-color 180ms ease,
+    color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.public-site #jobs a {
+  background: #0a0a0a;
+  color: #fff;
+}
+
+.public-site #jobs a:hover {
+  background: #2a2a2a;
+  box-shadow: 0 16px 34px rgba(10, 10, 10, 0.18);
+}
+
+.public-site .contact-layout-shell {
+  align-items: start;
+  gap: clamp(24px, 4vw, 48px);
+}
+
+.public-site .contact-section h2.contact-title {
+  max-width: 520px;
+  font-size: clamp(42px, 5.2vw, 72px);
+  line-height: 0.94;
+}
+
+.public-site .contact-lead {
+  max-width: 560px;
+  font-size: clamp(15px, 1.05vw, 17px);
+  line-height: 1.65;
+}
+
+.public-site .contact-side {
+  max-width: 620px;
+}
+
+.public-site .contact-form-card,
+.public-site .contact-info-card,
+.public-site .contact-map-card {
+  border-color: rgba(255, 255, 255, 0.12) !important;
+  border-radius: 8px;
+  background: #f7f7f2;
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.26);
+  backdrop-filter: blur(16px);
+}
+
+.public-site .contact-info-card {
+  padding: 10px !important;
+}
+
+.public-site .contact-info-card p {
+  grid-template-columns: 140px minmax(0, 1fr);
+  padding: 13px 14px;
+}
+
+.public-site .contact-info-card span,
+.public-site .contact-map-card p {
+  font-size: 12px;
+}
+
+.public-site .contact-info-card strong {
+  font-size: 14px;
+}
+
+.public-site .contact-map-card {
+  padding: 12px !important;
+}
+
+.public-site .contact-form-card:hover,
+.public-site .contact-info-card:hover,
+.public-site .contact-map-card:hover {
+  box-shadow: 0 34px 100px rgba(0, 0, 0, 0.32);
+}
+
+.public-site .contact-form-card input,
+.public-site .contact-form-card textarea {
+  border-color: rgba(10, 10, 10, 0.12);
+  background: #fff;
+  color: #0a0a0a;
+}
+
+.public-site .contact-form-card input:focus,
+.public-site .contact-form-card textarea:focus {
+  border-color: #0a0a0a;
+  box-shadow: 0 0 0 4px rgba(10, 10, 10, 0.09);
+}
+
+.public-site .contact-section a[href^="tel"],
+.public-site .contact-section button[type="submit"],
+.public-site .contact-map-card a {
+  background: #fff;
+  color: #0a0a0a;
+}
+
+.public-site .contact-section a[href^="tel"]:hover,
+.public-site .contact-section button[type="submit"]:hover,
+.public-site .contact-map-card a:hover {
+  background: #deded6;
+  color: #0a0a0a;
+}
+
+.public-site .contact-section a[href^="mailto"] {
+  border-color: rgba(255, 255, 255, 0.22);
+  background: rgba(255, 255, 255, 0.06);
+  color: #fff;
+}
+
+.public-site .contact-section a[href^="mailto"]:hover {
+  border-color: rgba(255, 255, 255, 0.36);
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.public-site .contact-info-card p:hover {
+  background: rgba(10, 10, 10, 0.035);
+}
+
+.public-site .contact-map-frame {
+  filter: grayscale(88%) contrast(1.04);
+}
+
+@media (max-width: 720px) {
+  .public-site section:not(#home)::before {
+    opacity: 0.55;
+  }
+
+  .public-site #about .mx-auto.grid,
+  .public-site #services > .mx-auto,
+  .public-site #portfolio > .mx-auto,
+  .public-site #jobs > .relative.mx-auto,
+  .public-site .contact-layout-shell {
+    padding-top: 72px;
+    padding-bottom: 72px;
+  }
+
+  .public-site #about h2,
+  .public-site #services h2,
+  .public-site #portfolio h2,
+  .public-site #jobs h2,
+  .public-site .contact-section h2 {
+    font-size: clamp(40px, 13vw, 58px);
+  }
+
+  .public-site .contact-section h2.contact-title {
+    font-size: clamp(38px, 12vw, 52px);
+  }
+
+  .public-site .contact-info-card p {
+    grid-template-columns: 1fr;
+  }
+
+  .public-site #portfolio article .relative.h-40 {
+    height: 180px;
+  }
+
+  .public-site .team-carousel {
+    width: min(100%, 320px);
+  }
+
+  .public-site .team-page-count-3,
+  .public-site .team-page-count-2,
+  .public-site .team-page-count-1 {
+    grid-template-columns: minmax(0, 300px);
+  }
+
+  .public-site .team-card {
+    min-height: 340px;
+  }
+
+  .public-site .team-nav-button {
+    display: none;
   }
 }

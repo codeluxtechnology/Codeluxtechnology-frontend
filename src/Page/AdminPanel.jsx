@@ -30,6 +30,7 @@ const emptyJob = {
   description: '',
   requirements: '',
   applyEmail: '',
+  applyLink: '',
   closingDate: '',
   featured: false,
   active: true,
@@ -501,7 +502,7 @@ const AdminPanel = () => {
         {activeTab === 'jobs' ? (
           <CrudPanel form={(
             <form className="admin-card admin-form admin-job-form grid gap-3 rounded-lg border border-slate-200 bg-white p-5 shadow-sm" data-title={tabTitles.jobs} onSubmit={saveJob}>
-              {['title', 'location', 'employmentType', 'experience', 'applyEmail', 'closingDate'].map((key) => <input className={inputClass} key={key} name={key} onChange={setField(setJobForm)} placeholder={key} required={key === 'title'} type={key === 'closingDate' ? 'date' : 'text'} value={jobForm[key] || ''} />)}
+              {['title', 'location', 'employmentType', 'experience', 'applyEmail', 'applyLink', 'closingDate'].map((key) => <input className={inputClass} key={key} name={key} onChange={setField(setJobForm)} placeholder={key === 'applyLink' ? 'Apply link URL' : key} required={key === 'title'} type={key === 'closingDate' ? 'date' : 'text'} value={jobForm[key] || ''} />)}
               <textarea className={textareaClass} name="description" onChange={setField(setJobForm)} placeholder="Description" value={jobForm.description}></textarea>
               <textarea className={textareaClass} name="requirements" onChange={setField(setJobForm)} placeholder="Requirements" value={jobForm.requirements}></textarea>
               <label className="inline-flex items-center gap-2 text-sm font-black"><input checked={jobForm.featured} name="featured" onChange={setField(setJobForm)} type="checkbox" /> Featured</label>

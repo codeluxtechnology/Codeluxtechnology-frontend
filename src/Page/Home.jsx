@@ -37,6 +37,7 @@ const Home = ({ settings, media = [] }) => {
   const [slideIndex, setSlideIndex] = useState(0)
   const currentSlide = slides[slideIndex % Math.max(slides.length, 1)]
   const heroSrc = assetUrl(currentSlide?.imageUrl || settings?.heroImageUrl) || heroImage
+  const logoSrc = assetUrl(settings?.logoUrl)
   const tagline = settings?.tagline || 'Custom Software | Web | Mobile | Automation'
 
   useEffect(() => {
@@ -85,14 +86,14 @@ const Home = ({ settings, media = [] }) => {
           animate={{ opacity: 1, y: 0, scale: 1 }}
           transition={{ duration: 0.75, ease: 'easeOut', delay: 0.18 }}
         >
-          <DashboardPreview heroSrc={heroSrc} slideCount={slides.length} slideIndex={slideIndex} />
+          <DashboardPreview heroSrc={heroSrc} logoSrc={logoSrc} slideCount={slides.length} slideIndex={slideIndex} />
         </motion.div>
       </div>
     </section>
   )
 }
 
-const DashboardPreview = ({ heroSrc, slideCount, slideIndex }) => (
+const DashboardPreview = ({ heroSrc, logoSrc, slideCount, slideIndex }) => (
   <motion.div
     className="dashboard-preview"
     whileHover={{ rotateX: 2.5, rotateY: -3.5, y: -8 }}
@@ -106,6 +107,14 @@ const DashboardPreview = ({ heroSrc, slideCount, slideIndex }) => (
 
     <div className="tech-illustration" aria-hidden="true">
       <img className="tech-hero-image" src={heroSrc} alt="" />
+      <motion.div
+        className={`tech-logo-badge ${logoSrc ? '' : 'tech-logo-fallback'}`}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8, ease: 'easeOut', delay: 0.55 }}
+      >
+        {logoSrc ? <img src={logoSrc} alt="" /> : <span>CL</span>}
+      </motion.div>
       <span className="tech-layer tech-layer-top"></span>
       <span className="tech-layer tech-layer-middle"></span>
       <span className="tech-layer tech-layer-bottom"></span>

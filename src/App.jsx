@@ -9,6 +9,7 @@ import Contact from './Page/Contact'
 import Home from './Page/Home'
 import Portfolio from './Page/Portfolio'
 import Services from './Page/Services'
+import SiteAtmosphere from './components/SiteAtmosphere'
 
 const navItems = [
   { label: 'Home', href: '#home', Icon: HomeIcon },
@@ -119,7 +120,8 @@ const App = () => {
   }
 
   return (
-    <div className="min-h-screen overflow-x-hidden bg-slate-50 text-slate-950">
+    <div className="public-site min-h-screen overflow-x-hidden bg-neutral-50 text-neutral-950">
+      <SiteAtmosphere />
       <header className={`site-header ${scrolled ? 'is-scrolled' : ''}`}>
         <div className="site-header-inner">
           <motion.a
@@ -198,20 +200,20 @@ const App = () => {
         <Contact settings={siteData.settings} />
       </main>
 
-      <footer className="border-t border-slate-200 bg-white">
-        <div className="mx-auto flex w-full max-w-7xl flex-col gap-5 px-4 py-8 sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8">
-          <a className="flex w-fit items-center gap-3 text-slate-950 no-underline" href="#home" aria-label={`${companyName} Home`}>
+      <footer className="site-footer">
+        <div className="site-footer-inner">
+          <a className="site-footer-brand" href="#home" aria-label={`${companyName} Home`}>
             <LogoMark logoSrc={logoSrc} footer />
             <span>
-              <strong className="block text-base font-black leading-tight tracking-normal">{companyName}</strong>
-              <small className="block text-xs font-semibold leading-tight text-slate-500">Technology</small>
+              <strong>{companyName}</strong>
+              <small>Technology</small>
             </span>
           </a>
 
-          <nav className="flex flex-wrap gap-x-5 gap-y-3" aria-label="Footer navigation">
+          <nav className="site-footer-nav" aria-label="Footer navigation">
             {[...navItems, { label: 'Privacy Policy', href: '#privacy' }].map((item) => (
-              <a className="inline-flex items-center gap-2 text-sm font-bold text-slate-600 no-underline hover:text-blue-700" href={item.href} key={item.href}>
-                {'Icon' in item ? <item.Icon className="h-4 w-4" aria-hidden="true" /> : <ShieldCheck className="h-4 w-4" aria-hidden="true" />}
+              <a href={item.href} key={item.href}>
+                {'Icon' in item ? <item.Icon aria-hidden="true" /> : <ShieldCheck aria-hidden="true" />}
                 {item.label}
               </a>
             ))}

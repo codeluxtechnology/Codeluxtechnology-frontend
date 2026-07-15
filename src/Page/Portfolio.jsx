@@ -57,7 +57,7 @@ const PortfolioCard = ({ item, index }) => {
   const imageSrc = assetUrl(item.imageUrl)
   const Icon = item.Icon || [PanelsTopLeft, Building2, Store][index % 3]
   const content = (
-    <article className="soft-lift reveal-on-scroll group relative min-h-[330px] overflow-hidden rounded-lg border border-slate-200 bg-white shadow-sm transition hover:border-blue-200 hover:shadow-xl hover:shadow-blue-950/10">
+    <article className="soft-lift reveal-on-scroll group relative min-h-[300px] overflow-hidden rounded-lg border border-slate-200 bg-white shadow-sm transition hover:border-blue-200 hover:shadow-xl hover:shadow-blue-950/10">
       <div className="relative h-40 overflow-hidden bg-slate-950">
         {imageSrc ? (
           <img className="h-full w-full object-cover transition duration-700 group-hover:scale-105" src={imageSrc} alt={item.title} />
@@ -72,15 +72,15 @@ const PortfolioCard = ({ item, index }) => {
         </span>
       </div>
 
-      <div className="p-5">
-        <div className="mb-4 flex items-start justify-between gap-4">
-          <h3 className="text-2xl font-black leading-tight text-slate-950">{item.title}</h3>
-          <span className="grid h-10 w-10 shrink-0 place-items-center rounded-lg bg-slate-950 text-white transition group-hover:bg-blue-700">
+      <div className="p-4">
+        <div className="mb-3 flex items-start justify-between gap-4">
+          <h3 className="text-xl font-black leading-tight text-slate-950">{item.title}</h3>
+          <span className="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-slate-950 text-white transition group-hover:bg-blue-700">
             <ArrowUpRight className="h-5 w-5" aria-hidden="true" />
           </span>
         </div>
         <p className="text-sm leading-6 text-slate-600">{item.caption}</p>
-        <div className="mt-6 flex items-center justify-between border-t border-slate-100 pt-4">
+        <div className="mt-5 flex items-center justify-between border-t border-slate-100 pt-4">
           <span className="text-sm font-black text-blue-700">CODELUX Technology</span>
           <span className="h-2 w-10 rounded-full bg-gradient-to-r from-blue-700 to-teal-300" aria-hidden="true"></span>
         </div>

@@ -18,12 +18,11 @@ const services = [
   ['Website Development', 'Clean, SEO-friendly websites for modern brands.', LayoutTemplate],
   ['E-Commerce Website', 'Online stores built for product discovery and sales.', ShoppingCart],
   ['Custom Software Development', 'Business tools designed around your workflow.', Code2],
+  ['UI/UX Design', 'Clean layouts, user flows, and polished interface design.', Palette],
   ['Hotel Management Software', 'Room, booking, billing, and operations systems.', Hotel],
   ['Pharmacy Management Software', 'Inventory, billing, stock, and report handling.', Pill],
   ['School & College Management Software', 'Admissions, fees, records, and admin modules.', GraduationCap],
   ['Mobile App Development', 'Responsive mobile experiences for customers and teams.', Smartphone],
-  ['UI/UX Design', 'Simple, polished interfaces that are easy to use.', Palette],
-  ['Website Maintenance', 'Updates, fixes, backups, and ongoing support.', Wrench],
 ]
 
 const processSteps = [
@@ -49,7 +48,7 @@ const Services = () => {
           </h2>
         </div>
 
-        <div className="relative mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="relative mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {services.map(([title, text, Icon]) => (
             <article className="service-pro-card reveal-on-scroll group" key={title}>
               <span className="service-icon-badge">

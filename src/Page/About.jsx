@@ -8,10 +8,10 @@ const reasons = [
   ['On-Time Project Delivery', 'Clear milestones, steady updates, and focused execution.', Clock3],
   ['Data Security', 'Secure access, safer data handling, and reliable deployments.', ShieldCheck],
   ['After-Sales Support', 'Responsive support after launch so your product keeps improving.', Headset],
+  ['Modern Stack', 'Fast, responsive, and maintainable technology.', BadgeCheck],
 ]
 
 const highlights = [
-  ['Modern Stack', 'Fast, responsive, and maintainable technology.'],
   ['Business First', 'Every feature is connected to a real business outcome.'],
   ['Clean Process', 'Discovery, design, development, testing, and launch.'],
 ]
@@ -67,15 +67,6 @@ const About = ({ settings, team = [] }) => {
             {settings?.aboutDescription || 'is an IT company providing Custom Software, Web Development, Mobile App Development, and Business Automation Solutions. Our goal is to create reliable, secure, and modern software for every business.'}
           </p>
 
-          <div className="mt-8 grid gap-3 sm:grid-cols-3 lg:grid-cols-1">
-            {highlights.map(([title, text]) => (
-              <div className="about-metric-card reveal-on-scroll" key={title}>
-                <BadgeCheck className="h-5 w-5 text-teal-300" aria-hidden="true" />
-                <strong>{title}</strong>
-                <span>{text}</span>
-              </div>
-            ))}
-          </div>
         </div>
 
         <div className="reveal-on-scroll about-feature-shell">
@@ -98,6 +89,16 @@ const About = ({ settings, team = [] }) => {
             <p className="text-xs font-black uppercase tracking-[0.22em] text-teal-300">Delivery Focus</p>
             <strong>Reliable software, polished UI, secure launch.</strong>
             <span>We keep the product simple to use, easy to maintain, and ready to grow with your business.</span>
+          </div>
+
+          <div className="about-highlight-strip reveal-on-scroll">
+            {highlights.map(([title, text]) => (
+              <div className="about-metric-card" key={title}>
+                <BadgeCheck className="h-5 w-5 text-teal-300" aria-hidden="true" />
+                <strong>{title}</strong>
+                <span>{text}</span>
+              </div>
+            ))}
           </div>
         </div>
       </div>
