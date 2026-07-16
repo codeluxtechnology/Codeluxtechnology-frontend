@@ -1562,11 +1562,41 @@
   letter-spacing: 0;
   line-height: 0.95;
   text-shadow: 0 1px 16px rgba(190, 190, 184, 0.22);
+  transition:
+    color 180ms ease,
+    text-shadow 180ms ease,
+    filter 180ms ease;
+}
+
+.public-site #about h2:hover,
+.public-site .contact-section h2:hover {
+  color: #f8fafc;
+  text-shadow:
+    0 0 18px rgba(255, 255, 255, 0.26),
+    0 0 42px rgba(34, 211, 238, 0.16);
+}
+
+.public-site #services h2:hover,
+.public-site #portfolio h2:hover,
+.public-site #jobs h2:hover {
+  color: #155dfc;
+  text-shadow:
+    0 0 18px rgba(21, 93, 252, 0.18),
+    0 12px 34px rgba(10, 10, 10, 0.08);
 }
 
 .public-site #about p,
 .public-site .contact-section p {
   color: #c8c8c0;
+  transition:
+    color 180ms ease,
+    text-shadow 180ms ease;
+}
+
+.public-site #about p:hover,
+.public-site .contact-section p:hover {
+  color: #f1f5f9;
+  text-shadow: 0 0 16px rgba(94, 234, 212, 0.16);
 }
 
 .public-site .about-feature-shell {
@@ -1584,6 +1614,11 @@
   border-color: rgba(255, 255, 255, 0.12);
   background: rgba(255, 255, 255, 0.055);
   box-shadow: none;
+  transition:
+    transform 220ms ease,
+    border-color 220ms ease,
+    background-color 220ms ease,
+    box-shadow 220ms ease;
 }
 
 .public-site .about-feature-grid {
@@ -1633,27 +1668,56 @@
 .public-site .about-metric-card:hover,
 .public-site .about-delivery-card:hover,
 .public-site .team-card:hover {
-  border-color: rgba(255, 255, 255, 0.28);
-  background: rgba(255, 255, 255, 0.085);
-  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.28);
+  border-color: rgba(34, 211, 238, 0.44);
+  background:
+    linear-gradient(135deg, rgba(21, 93, 252, 0.16), rgba(94, 234, 212, 0.09)),
+    rgba(255, 255, 255, 0.085);
+  box-shadow:
+    0 24px 70px rgba(0, 0, 0, 0.28),
+    0 0 40px rgba(34, 211, 238, 0.1);
 }
 
 .public-site .about-feature-icon {
   background: #fff;
   color: #0a0a0a;
   box-shadow: none;
+  transition:
+    background 200ms ease,
+    color 200ms ease,
+    box-shadow 200ms ease;
+}
+
+.public-site .about-feature-card:hover .about-feature-icon {
+  background: linear-gradient(135deg, #155dfc, #22d3ee);
+  color: #fff;
+  box-shadow: 0 16px 32px rgba(34, 211, 238, 0.24);
 }
 
 .public-site .about-metric-card strong,
 .public-site .about-delivery-card strong,
 .public-site .team-card-name {
   color: #fff;
+  transition: color 180ms ease, text-shadow 180ms ease;
 }
 
 .public-site .about-metric-card span,
 .public-site .about-delivery-card span,
 .public-site .team-card-meta {
   color: #b9b9b2;
+  transition: color 180ms ease;
+}
+
+.public-site .about-metric-card:hover strong,
+.public-site .about-delivery-card:hover strong,
+.public-site .team-card:hover .team-card-name {
+  color: #f8fafc;
+  text-shadow: 0 0 18px rgba(34, 211, 238, 0.24);
+}
+
+.public-site .about-metric-card:hover span,
+.public-site .about-delivery-card:hover span,
+.public-site .team-card:hover .team-card-meta {
+  color: #dbeafe;
 }
 
 .public-site .about-delivery-pulse {
@@ -1826,6 +1890,11 @@
   background: rgba(255, 255, 255, 0.86);
   box-shadow: none;
   backdrop-filter: blur(16px);
+  transition:
+    transform 220ms ease,
+    border-color 220ms ease,
+    background 220ms ease,
+    box-shadow 220ms ease;
 }
 
 .public-site .service-pro-card {
@@ -1841,8 +1910,13 @@
 .public-site #jobs article:hover,
 .public-site #portfolio article:hover {
   transform: translateY(-6px);
-  border-color: rgba(10, 10, 10, 0.32);
-  box-shadow: 0 28px 70px rgba(10, 10, 10, 0.1);
+  border-color: rgba(21, 93, 252, 0.28);
+  background:
+    linear-gradient(135deg, rgba(239, 246, 255, 0.96), rgba(236, 254, 255, 0.9)),
+    rgba(255, 255, 255, 0.94);
+  box-shadow:
+    0 28px 70px rgba(10, 10, 10, 0.1),
+    0 0 36px rgba(21, 93, 252, 0.11);
 }
 
 .public-site .service-icon-badge {
@@ -1852,10 +1926,17 @@
   background: #0a0a0a;
   color: #fff;
   box-shadow: none;
+  transition:
+    background 200ms ease,
+    color 200ms ease,
+    box-shadow 200ms ease,
+    transform 200ms ease;
 }
 
 .public-site .service-pro-card:hover .service-icon-badge {
   transform: translateY(-2px) scale(1.04);
+  background: linear-gradient(135deg, #155dfc, #0f766e);
+  box-shadow: 0 18px 34px rgba(21, 93, 252, 0.22);
 }
 
 .public-site .service-pro-card h3 {
@@ -1865,12 +1946,39 @@
   font-weight: 950;
   letter-spacing: 0;
   line-height: 1.02;
+  transition: color 180ms ease;
+}
+
+.public-site .service-pro-card h3:hover {
+  color: #155dfc;
 }
 
 .public-site .service-pro-card p,
 .public-site #portfolio p,
 .public-site #jobs p {
   color: #666;
+  transition:
+    color 180ms ease,
+    text-shadow 180ms ease;
+}
+
+.public-site .service-pro-card p:hover,
+.public-site #portfolio p:hover,
+.public-site #jobs p:hover {
+  color: #1e293b;
+  text-shadow: 0 0 14px rgba(21, 93, 252, 0.1);
+}
+
+.public-site .service-pro-card:hover h3,
+.public-site #portfolio article:hover h3,
+.public-site #jobs article:hover h3 {
+  color: #155dfc;
+}
+
+.public-site .service-pro-card:hover p,
+.public-site #portfolio article:hover p,
+.public-site #jobs article:hover p {
+  color: #334155;
 }
 
 .public-site .process-panel {
@@ -1905,8 +2013,11 @@
 }
 
 .public-site .process-node:hover {
-  border-color: rgba(255, 255, 255, 0.3);
-  box-shadow: none;
+  border-color: rgba(94, 234, 212, 0.38);
+  background:
+    linear-gradient(135deg, rgba(21, 93, 252, 0.2), rgba(94, 234, 212, 0.08)),
+    rgba(255, 255, 255, 0.08);
+  box-shadow: 0 20px 48px rgba(21, 93, 252, 0.1);
 }
 
 .public-site .process-node-number,
@@ -1923,10 +2034,21 @@
 .public-site .process-node strong {
   color: #fff;
   text-shadow: 0 1px 12px rgba(200, 200, 194, 0.14);
+  transition: color 180ms ease, text-shadow 180ms ease;
 }
 
 .public-site .process-node p {
   color: #aaa;
+  transition: color 180ms ease;
+}
+
+.public-site .process-node:hover strong {
+  color: #f8fafc;
+  text-shadow: 0 0 18px rgba(94, 234, 212, 0.22);
+}
+
+.public-site .process-node:hover p {
+  color: #dbeafe;
 }
 
 .public-site #portfolio article {
