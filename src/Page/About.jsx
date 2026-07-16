@@ -266,7 +266,7 @@ const TeamPhoto = ({ imageUrl, name }) => {
     return (
       <div className="team-photo-shell mx-auto h-32 w-32">
         <div className="team-photo h-full w-full overflow-hidden rounded-full border-4 border-white/80 bg-white shadow-xl shadow-blue-950/40 ring-2 ring-teal-300/35">
-          <img className="h-full w-full object-cover transition duration-500 group-hover:scale-105" src={imageSrc} alt={name} onError={() => setFailed(true)} />
+          <img className="h-full w-full object-contain object-center p-1 transition duration-500 group-hover:scale-105" src={imageSrc} alt={name} onError={() => setFailed(true)} />
         </div>
       </div>
     )

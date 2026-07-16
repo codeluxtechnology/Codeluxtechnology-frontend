@@ -741,7 +741,7 @@ const ProfilePhotoPicker = ({ file, imageUrl, onClear, onFile }) => {
     <div className="admin-upload-zone grid gap-3 rounded-lg border border-dashed border-slate-300 bg-slate-50 p-3 sm:grid-cols-[96px_1fr]">
       <div className="grid h-24 w-24 place-items-center overflow-hidden rounded-lg bg-white ring-1 ring-slate-200">
         {previewUrl && !failed ? (
-          <img className="h-full w-full object-cover" src={previewUrl} alt="Team profile preview" onError={() => setFailed(true)} />
+          <img className="h-full w-full object-contain object-center p-1" src={previewUrl} alt="Team profile preview" onError={() => setFailed(true)} />
         ) : (
           <ImagePlus className="h-7 w-7 text-slate-400" aria-hidden="true" />
         )}
