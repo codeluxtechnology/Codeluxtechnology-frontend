@@ -9,6 +9,7 @@ import Contact from './Page/Contact'
 import Home from './Page/Home'
 import Portfolio from './Page/Portfolio'
 import Services from './Page/Services'
+import CustomCursor from './components/CustomCursor'
 import SiteAtmosphere from './components/SiteAtmosphere'
 
 const navItems = [
@@ -147,6 +148,7 @@ const App = () => {
   return (
     <div className="public-site min-h-screen overflow-x-hidden bg-neutral-50 text-neutral-950">
       <SiteAtmosphere />
+      <CustomCursor />
       <header className={`site-header ${scrolled ? 'is-scrolled' : ''}`}>
         <div className="site-header-inner">
           <motion.a

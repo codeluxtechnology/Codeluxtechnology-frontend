@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 
 const interactiveSelector = 'a, button, [role="button"], input, textarea, select, .service-pro-card, .team-card, #portfolio article, #jobs article, .dashboard-mini-card'
-const textSelector = 'h1, h2, h3, h4, p, input, textarea, [contenteditable="true"]'
+const textSelector = 'h1, h2, h3, h4, strong, p, li, span, input, textarea, [contenteditable="true"]'
 const magneticSelector = '.home-button-primary, .home-button-light, #jobs a, .contact-section a[href^="tel"], .contact-section button[type="submit"], .contact-map-card a'
 
 const getCursorLabel = (element) => {
@@ -46,9 +46,14 @@ const CustomCursor = () => {
       const interactive = target.closest?.(interactiveSelector)
       const text = target.closest?.(textSelector)
       const label = interactive ? getCursorLabel(interactive) : ''
+      const glowTarget = text && !interactive ? text : null
       document.body.classList.toggle('cursor-is-interactive', Boolean(interactive))
       document.body.classList.toggle('cursor-is-text', Boolean(text) && !interactive)
       document.body.classList.toggle('cursor-has-label', Boolean(label))
+      document.querySelectorAll('.cursor-text-glow').forEach((element) => {
+        if (element !== glowTarget) element.classList.remove('cursor-text-glow')
+      })
+      glowTarget?.classList.add('cursor-text-glow')
       cursorState.label = label
       if (labelRef.current) labelRef.current.textContent = label
     }
@@ -86,6 +91,7 @@ const CustomCursor = () => {
     const handlePointerUp = () => document.body.classList.remove('cursor-is-active')
     const handlePointerLeave = () => {
       document.body.classList.add('cursor-is-hidden')
+      document.querySelectorAll('.cursor-text-glow').forEach((element) => element.classList.remove('cursor-text-glow'))
       resetMagneticTarget()
     }
     const handlePointerEnter = () => document.body.classList.remove('cursor-is-hidden')
@@ -121,6 +127,7 @@ const CustomCursor = () => {
       window.removeEventListener('pointerleave', handlePointerLeave)
       window.removeEventListener('pointerenter', handlePointerEnter)
       resetMagneticTarget()
+      document.querySelectorAll('.cursor-text-glow').forEach((element) => element.classList.remove('cursor-text-glow'))
       document.body.classList.remove('custom-cursor-enabled', 'cursor-is-interactive', 'cursor-is-text', 'cursor-is-active', 'cursor-is-hidden', 'cursor-has-label')
     }
   }, [])

@@ -914,6 +914,8 @@ html {
   transition:
     width 160ms ease,
     height 160ms ease,
+    background-color 160ms ease,
+    box-shadow 160ms ease,
     opacity 160ms ease;
 }
 
@@ -931,6 +933,7 @@ html {
     height 180ms ease,
     border-color 180ms ease,
     background-color 180ms ease,
+    box-shadow 180ms ease,
     opacity 180ms ease;
 }
 
@@ -962,19 +965,46 @@ html {
 .cursor-is-interactive .custom-cursor-ring {
   width: 56px;
   height: 56px;
-  border-color: rgba(255, 255, 255, 0.86);
-  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(34, 211, 238, 0.9);
+  background: radial-gradient(circle, rgba(34, 211, 238, 0.2), rgba(21, 93, 252, 0.08) 62%, transparent 70%);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.2),
+    0 0 34px rgba(34, 211, 238, 0.36),
+    0 0 70px rgba(21, 93, 252, 0.18);
+  mix-blend-mode: normal;
 }
 
 .cursor-is-interactive .custom-cursor-dot {
-  width: 5px;
-  height: 5px;
+  width: 9px;
+  height: 9px;
+  background: #22d3ee;
+  box-shadow:
+    0 0 18px rgba(34, 211, 238, 0.8),
+    0 0 38px rgba(21, 93, 252, 0.38);
+  mix-blend-mode: normal;
 }
 
 .cursor-is-text .custom-cursor-ring {
-  width: 18px;
-  height: 48px;
+  width: 24px;
+  height: 54px;
   border-radius: 999px;
+  border-color: rgba(255, 122, 0, 0.88);
+  background: linear-gradient(180deg, rgba(255, 122, 0, 0.2), rgba(94, 234, 212, 0.1));
+  box-shadow:
+    0 0 26px rgba(255, 122, 0, 0.36),
+    0 0 54px rgba(94, 234, 212, 0.12);
+  mix-blend-mode: normal;
+}
+
+.cursor-is-text .custom-cursor-dot {
+  width: 4px;
+  height: 20px;
+  border-radius: 999px;
+  background: #ff7a00;
+  box-shadow:
+    0 0 16px rgba(255, 122, 0, 0.8),
+    0 0 34px rgba(94, 234, 212, 0.18);
+  mix-blend-mode: normal;
 }
 
 .cursor-is-active .custom-cursor-ring {
@@ -991,6 +1021,26 @@ html {
 .cursor-is-hidden .custom-cursor-ring,
 .cursor-is-hidden .custom-cursor-label {
   opacity: 0;
+}
+
+.public-site .cursor-text-glow {
+  color: #fff;
+  text-shadow:
+    0 0 10px rgba(255, 255, 255, 0.38),
+    0 0 24px rgba(34, 211, 238, 0.26),
+    0 0 44px rgba(255, 122, 0, 0.14);
+  transition:
+    color 160ms ease,
+    text-shadow 160ms ease;
+}
+
+.public-site .cursor-text-glow.heading-word,
+.public-site .cursor-text-glow.heading-word-light,
+.public-site .cursor-text-glow.hero-typing-text {
+  color: transparent;
+  filter:
+    drop-shadow(0 0 12px rgba(34, 211, 238, 0.3))
+    drop-shadow(0 0 28px rgba(255, 122, 0, 0.14));
 }
 
 .site-footer::before {
