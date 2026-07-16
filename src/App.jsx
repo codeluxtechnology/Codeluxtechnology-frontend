@@ -1,6 +1,7 @@
 import { AnimatePresence, motion } from 'framer-motion'
 import { HomeIcon, Info, Layers3, Mail, Menu, ShieldCheck, X } from 'lucide-react'
 import { useEffect, useState } from 'react'
+import { Helmet } from 'react-helmet-async'
 import { assetUrl, requestJson } from './api'
 import About from './Page/About'
 import AdminPanel from './Page/AdminPanel'
@@ -146,6 +147,17 @@ const App = () => {
 
   return (
     <div className="public-site min-h-screen overflow-x-hidden bg-neutral-50 text-neutral-950">
+      <Helmet>
+        <title>CODELUX Technology | Custom Software & Web Development</title>
+        <meta
+          name="description"
+          content="Professional Web Development, Software Development, Mobile Apps and Business Automation Solutions."
+        />
+        <meta
+          name="keywords"
+          content="Software Company, Web Development, Java, Spring Boot, React"
+        />
+      </Helmet>
       <SiteAtmosphere />
       <header className={`site-header ${scrolled ? 'is-scrolled' : ''}`}>
         <div className="site-header-inner">
