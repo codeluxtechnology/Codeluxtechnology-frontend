@@ -14,6 +14,14 @@ const dashboardCards = [
   ['Secure Cloud Solutions', 'Protected cloud delivery', Cloud],
 ]
 
+const typingPhrases = [
+  'Custom Software Development',
+  'Web Development',
+  'Mobile App Development',
+  'Business Automation',
+  'Digital Solutions',
+]
+
 const reveal = {
   hidden: { opacity: 0, y: 26 },
   visible: { opacity: 1, y: 0 },
@@ -32,6 +40,38 @@ const scrollToSection = (id) => {
   document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
 }
 
+const useTypewriter = (phrases) => {
+  const [phraseIndex, setPhraseIndex] = useState(0)
+  const [characterCount, setCharacterCount] = useState(0)
+  const [deleting, setDeleting] = useState(false)
+
+  useEffect(() => {
+    const phrase = phrases[phraseIndex]
+    const isComplete = characterCount === phrase.length
+    const isEmpty = characterCount === 0
+    const delay = isComplete && !deleting ? 1350 : deleting ? 34 : 62
+
+    const timer = window.setTimeout(() => {
+      if (!deleting && isComplete) {
+        setDeleting(true)
+        return
+      }
+
+      if (deleting && isEmpty) {
+        setDeleting(false)
+        setPhraseIndex((index) => (index + 1) % phrases.length)
+        return
+      }
+
+      setCharacterCount((count) => count + (deleting ? -1 : 1))
+    }, delay)
+
+    return () => window.clearTimeout(timer)
+  }, [characterCount, deleting, phraseIndex, phrases])
+
+  return phrases[phraseIndex].slice(0, characterCount)
+}
+
 const Home = ({ settings, media = [] }) => {
   const slides = useMemo(() => media.filter((item) => item.mediaType === 'HERO_SLIDE'), [media])
   const [slideIndex, setSlideIndex] = useState(0)
@@ -39,6 +79,7 @@ const Home = ({ settings, media = [] }) => {
   const heroSrc = assetUrl(currentSlide?.imageUrl || settings?.heroImageUrl) || heroImage
   const logoSrc = assetUrl(settings?.logoUrl)
   const tagline = settings?.tagline || 'Custom Software | Web | Mobile | Automation'
+  const typedText = useTypewriter(typingPhrases)
 
   useEffect(() => {
     if (slides.length < 2) return undefined
@@ -64,6 +105,10 @@ const Home = ({ settings, media = [] }) => {
           <motion.h1 className="hero-title" variants={reveal}>
             Transforming Ideas into <span>Digital Solutions</span>
           </motion.h1>
+          <motion.div className="hero-typing-line" variants={reveal} aria-live="polite">
+            <span>We build</span>
+            <strong className="hero-typing-text">{typedText || '\u00a0'}</strong>
+          </motion.div>
           <motion.p className="hero-description" variants={reveal}>
             Code Lux Technology builds reliable, secure and modern digital solutions that help businesses grow,
             automate operations and create a strong digital presence.

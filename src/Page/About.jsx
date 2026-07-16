@@ -264,17 +264,17 @@ const TeamPhoto = ({ imageUrl, name }) => {
 
   if (imageSrc && !failed) {
     return (
-      <div className="team-photo-shell mx-auto h-32 w-32">
-        <div className="team-photo h-full w-full overflow-hidden rounded-full border-4 border-white/80 bg-white shadow-xl shadow-blue-950/40 ring-2 ring-teal-300/35">
-          <img className="h-full w-full object-contain object-center p-1 transition duration-500 group-hover:scale-105" src={imageSrc} alt={name} onError={() => setFailed(true)} />
+      <div className="team-photo-shell mx-auto">
+        <div className="team-photo h-full w-full overflow-hidden rounded-lg border border-white/80 bg-white shadow-xl shadow-blue-950/40 ring-2 ring-teal-300/35">
+          <img className="h-full w-full object-cover object-top transition duration-500 group-hover:scale-105" src={imageSrc} alt={name} onError={() => setFailed(true)} />
         </div>
       </div>
     )
   }
 
   return (
-    <div className="team-photo-shell mx-auto h-32 w-32">
-      <div className="team-photo grid h-full w-full place-items-center overflow-hidden rounded-full border-4 border-white/50 bg-white/[0.06] shadow-xl shadow-blue-950/40 ring-2 ring-teal-300/25">
+    <div className="team-photo-shell mx-auto">
+      <div className="team-photo grid h-full w-full place-items-center overflow-hidden rounded-lg border border-white/50 bg-white/[0.06] shadow-xl shadow-blue-950/40 ring-2 ring-teal-300/25">
         <UsersRound className="h-12 w-12 text-teal-300" aria-hidden="true" />
       </div>
     </div>

@@ -76,7 +76,7 @@ const Services = () => {
 
           <ol className="process-flow">
             {processSteps.map(([step, text, Icon], index) => (
-              <li className="process-node reveal-on-scroll" key={step}>
+              <li className="process-node reveal-on-scroll" key={step} style={{ '--reveal-delay': `${index * 80}ms` }}>
                 <span className="process-node-number">{String(index + 1).padStart(2, '0')}</span>
                 <span className="process-node-icon">
                   <Icon className="h-5 w-5" aria-hidden="true" />

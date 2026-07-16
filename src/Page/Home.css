@@ -481,6 +481,52 @@ html {
   color: transparent;
 }
 
+.hero-typing-line {
+  display: flex;
+  width: fit-content;
+  max-width: 100%;
+  align-items: center;
+  gap: 12px;
+  margin-top: 24px;
+  border: 1px solid rgba(34, 211, 238, 0.28);
+  border-radius: 999px;
+  background:
+    linear-gradient(135deg, rgba(21, 93, 252, 0.18), rgba(45, 212, 191, 0.08)),
+    rgba(255, 255, 255, 0.06);
+  box-shadow: 0 20px 54px rgba(21, 93, 252, 0.14);
+  color: #d8d8d8;
+  font-size: clamp(13px, 1.2vw, 16px);
+  font-weight: 850;
+  line-height: 1.35;
+  padding: 10px 14px;
+}
+
+.hero-typing-line span {
+  color: #f5f5f0;
+  white-space: nowrap;
+}
+
+.hero-typing-text {
+  position: relative;
+  display: inline-flex;
+  min-width: min(48vw, 270px);
+  background: linear-gradient(90deg, #ffffff, #60a5fa, #22d3ee, #5eead4);
+  background-clip: text;
+  color: transparent;
+  white-space: nowrap;
+}
+
+.hero-typing-text::after {
+  display: inline-block;
+  width: 2px;
+  height: 1.1em;
+  margin-left: 4px;
+  border-radius: 999px;
+  background: #5eead4;
+  content: "";
+  animation: caret-blink 900ms steps(2, start) infinite;
+}
+
 .hero-description {
   max-width: 720px;
   margin: 30px 0 0;
@@ -1195,6 +1241,11 @@ html {
     font-size: 17px;
   }
 
+  .hero-typing-line {
+    width: 100%;
+    max-width: 460px;
+  }
+
   .hero-actions {
     flex-direction: column;
     align-items: stretch;
@@ -1237,6 +1288,19 @@ html {
     overflow-wrap: anywhere;
     font-size: 10px;
     line-height: 1.45;
+  }
+
+  .hero-typing-line {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 5px;
+    border-radius: var(--home-radius);
+    font-size: 12px;
+  }
+
+  .hero-typing-text {
+    min-width: 0;
+    white-space: normal;
   }
 
   .hero-copy,
