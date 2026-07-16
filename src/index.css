@@ -2248,6 +2248,67 @@
     font-size: clamp(40px, 13vw, 58px);
   }
 
+  .public-site #about h2 {
+    font-size: clamp(38px, 11vw, 48px);
+    line-height: 1;
+  }
+
+  .public-site #about p {
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  .public-site .about-feature-shell {
+    padding: 12px;
+  }
+
+  .public-site .about-feature-grid,
+  .public-site .about-highlight-strip {
+    grid-template-columns: 1fr !important;
+    gap: 12px;
+  }
+
+  .public-site .about-feature-card {
+    display: grid !important;
+    grid-template-columns: 46px minmax(0, 1fr);
+    min-height: auto !important;
+    align-items: start;
+    gap: 13px;
+    padding: 16px !important;
+  }
+
+  .public-site .about-feature-icon {
+    width: 42px;
+    height: 42px;
+  }
+
+  .public-site .about-feature-card p {
+    margin: 0;
+    text-align: left;
+  }
+
+  .public-site .about-feature-card p:first-child {
+    font-size: 15px;
+    line-height: 1.25;
+  }
+
+  .public-site .about-feature-card p + p {
+    margin-top: 8px;
+    font-size: 14px;
+    line-height: 1.55;
+  }
+
+  .public-site .about-delivery-card,
+  .public-site .about-metric-card {
+    min-height: auto !important;
+    padding: 18px !important;
+  }
+
+  .public-site .about-delivery-card strong {
+    font-size: clamp(22px, 7vw, 28px);
+    line-height: 1.12;
+  }
+
   .public-site .contact-section h2.contact-title {
     font-size: clamp(38px, 12vw, 52px);
   }
